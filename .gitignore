@@ -1,5 +1,6 @@
 # Ignore generated spreadsheets
 *.csv
+*.xlsx
 
 # Ignore figures
 *.pdf
