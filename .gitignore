@@ -1,0 +1,10 @@
+# Ignore generated spreadsheets
+*.csv
+
+# Ignore figures
+*.pdf
+*.png
+*.jpg
+
+# Ignore other output files
+output/
