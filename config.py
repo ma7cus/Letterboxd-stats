@@ -5,11 +5,11 @@ DOWNLOADED_RATINGS_FILE = "ratings.csv"
 # Path to the raw ratings data file downloaded directly from Letterboxd. 
 # This file contains basic movie data in columns "Date, Name, Year, Letterboxd URI, Rating".
 
-OLD_RUN_OUTPUT_FILE = "ratings_04_10_2024.csv"  
+OLD_RUN_OUTPUT_FILE = "ratings_13_08_2024.csv"  
 # Path to the output file from a previous run if it exists (you need not specify this file if this is the first run of the code).    
 # This file contains processed columns like "Average Rating" and "Length (mins)" and is used to merge with new data, saving recalculations.
 
-CURRENT_RUN_OUTPUT_FILE = "ratings_07_11_2024.csv"  
+CURRENT_RUN_OUTPUT_FILE = "ratings_24_01_2025.csv"  
 # Path to the output file for the current run. 
 # If this file already exists, it will be loaded without further updates; otherwise, it will be created after processing.
 ##################################################################

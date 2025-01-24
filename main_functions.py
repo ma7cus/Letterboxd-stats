@@ -194,7 +194,7 @@ def print_nth_favourite_movies(df, n, min_rating):
             df_year_favourites = df_year_favourites._append(null_row, ignore_index=True)
 
 
-    df_year_favourites.to_excel(f'favourite_{n}_movies_by_year.csv', index=False)
+    df_year_favourites.to_csv(f'favourite_{n}_movies_by_year.csv', index=False)
     
     return df_year_favourites
 
@@ -256,7 +256,7 @@ def print_favourite_year(df, n):
     print(f"Year: {int(round(sorted_df.iloc[2]['Year']))} with average rating of: {sorted_df.iloc[2][f'Average rating of top {n} films']}")
     print("")
     
-    df_favourite_year.to_excel(f'favourite_year_by_{n}_movies.csv', index=False)
+    df_favourite_year.to_csv(f'favourite_year_by_{n}_movies.csv', index=False)
     
     return df_favourite_year
 
@@ -339,10 +339,10 @@ def biggest_difference(df, n, higher_or_lower):
     
     if higher_or_lower == 1:
         print(f"Top {n} higher than average ratings: ")
-        higher_or_lower_df.to_excel(f"top_{n}_differences.csv", index=False)
+        higher_or_lower_df.to_csv(f"top_{n}_differences.csv", index=False)
     elif higher_or_lower == -1:
         print(f"Top {n} lower than average ratings: ")
-        higher_or_lower_df.to_excel(f"bottom_{n}_differences.csv", index=False)
+        higher_or_lower_df.to_csv(f"bottom_{n}_differences.csv", index=False)
     
     print(higher_or_lower_df[['Name','Rating','Average Rating']])
 
