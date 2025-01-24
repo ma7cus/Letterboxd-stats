@@ -74,22 +74,3 @@ def extract_film_lengths(df):
         print('')
     return film_lengths
 
-###############################################################################
-# Code for testing the functions
-###############################################################################
-"""
-file_path = 'test_data.csv'
-
-# Read the CSV file into a DataFrame
-df = pd.read_csv(file_path)
-
-# Call the extract_film_lengths function to extract film lengths
-film_lengths = extract_film_lengths(df)
-
-# Append the extracted film lengths to the DataFrame
-df['Length (mins)'] = film_lengths
-df['Length (mins)'] = pd.to_numeric(df['Length (mins)'], errors='coerce')
-
-# Print the last few rows of the DataFrame to verify the appended lengths
-print(df[['Average Rating', 'Length (mins)']].tail())
-"""

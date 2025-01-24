@@ -90,21 +90,4 @@ def extract_average_ratings(df):
         print('New average ratings extracted')
         print('')
     return average_ratings
-################################################################
-# Sample usage of the functions
-################################################################
-"""
-file_path = 'test_data.csv'
 
-# Read the CSV file into a DataFrame
-df = pd.read_csv(file_path)
-
-# Call the extract_average_ratings function to extract average ratings
-average_ratings = extract_average_ratings(df)
-
-# Append the extracted average ratings to the DataFrame
-df['Average Rating'] = average_ratings
-
-# Print the last few rows of the DataFrame to verify the appended ratings
-print(df[['Average Rating', 'Length (mins)']].tail())
-"""
