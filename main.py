@@ -4,7 +4,7 @@
 from main_functions import (
     import_and_process_data,
     ratings_dist,
-    year_dist,
+    release_year_dist,
     print_nth_favourite_movies,
     print_favourite_year,
     print_total_length,
@@ -34,7 +34,7 @@ def main():
 
     # Generate and display distribution plots
     ratings_dist(df)
-    year_dist(df)
+    release_year_dist(df)
 
     # Generate data on favourite movies in each year and favourite years by the top 'n' movie ratings
     df_year_favourites = print_nth_favourite_movies(df, FAVOURITES_TOP_N_MOVIES, FAVOURITES_MIN_RATING)

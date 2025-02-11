@@ -101,7 +101,7 @@ def ratings_dist(df):
 ###############################################################################
 
 ## Plotting the year distribution ##
-def year_dist(df):
+def release_year_dist(df):
     """
     Plot the distribution of years and compute the 
     most watched years.
@@ -117,7 +117,7 @@ def year_dist(df):
     axes.set_xticks(x_ticks)
     plt.xlabel('Years')
     plt.ylabel('Frequency')
-    plt.title('Year distribution for ma7cus')
+    plt.title('Release year distribution')
 
     sns.histplot(data=df_years, bins=year_range, kde=True)  # Plot a histogram of the frequency data split into 10 classes (i.e. the 10 possible ratings)
     plt.savefig('year_dist.pdf', format='pdf')
@@ -126,12 +126,52 @@ def year_dist(df):
     year_counts = df_years.value_counts()
     sorted_counts = year_counts.sort_values(ascending=False)
     
-    print("Most watched years: ")
+    print("Most watched release years: ")
     print(f'{sorted_counts.index[0]} with {sorted_counts.iloc[0]} watches')
     print(f'{sorted_counts.index[1]} with {sorted_counts.iloc[1]} watches')
     print(f'{sorted_counts.index[2]} with {sorted_counts.iloc[2]} watches')
     print("")
+
+
+#The function below is not used in the main script, but can be used to plot the cumulative frequency of films watched over time.
+#I found it didn't work for my data as the ratings data is just the date at which a film was logged, not watched 
+# so there were days where I 'watched' hundreds of films which didn't make sense.
+"""    
+def watch_frequency_dist(df, time_interval='D'):
+    Plots a cumulative frequency graph of the number of films watched over time.
     
+    Parameters:
+    df (pd.DataFrame): DataFrame containing film watch data with a 'Date' column.
+    time_interval (str): Pandas offset alias (e.g., 'D' for daily, 'W' for weekly, 'M' for monthly).
+    
+    # Ensure the 'Date' column is in datetime format, handling inconsistencies
+    df['Date'] = pd.to_datetime(df['Date'].str.strip(), format='mixed', dayfirst=True, errors='coerce')
+    
+    # Drop rows with NaT values in 'Date'
+    df = df.dropna(subset=['Date'])
+    
+    # Count the number of films watched per specified time interval
+    df_grouped = df.groupby(pd.Grouper(key='Date', freq=time_interval)).size()
+    
+    # Compute cumulative sum
+    df_cumulative = df_grouped.cumsum()
+    
+    # Find the n most watched time intervals
+    number_of_elements = 5
+    most_watched_days = df_grouped.nlargest(number_of_elements)
+    print(f'Top 3 most watched {time_interval}:')
+    print(most_watched_days)
+    
+    # Plot cumulative frequency
+    plt.figure(figsize=(10, 5))
+    plt.plot(df_cumulative.index, df_cumulative.values, linestyle='-')
+    plt.xlabel('Date')
+    plt.ylabel('Cumulative Count of Films Watched')
+    plt.title(f'Cumulative Films Watched Over Time ({time_interval})')
+    plt.legend()
+    plt.grid()
+    plt.show()
+"""
 ###############################################################################
 
 ###############################################################################
